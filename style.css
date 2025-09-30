@@ -1,0 +1,382 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(assets/img/background-day.jpg);
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+}
+
+.body.dark {
+  background-image: url(assets/img/background-night.jpg);
+  color: rgb(255, 255, 255);
+}
+
+.main {
+  font-family: 'Lucida Console', monospace;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 1fr;
+  padding: 10px 0;
+}
+
+.menu-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 80%;
+  width: 100%;
+  max-width: 550px;
+}
+
+.buttons-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  margin: 0 auto;
+}
+
+.levels-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 15%;
+  margin: 0 auto;
+}
+
+.level-puzzles-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  margin: 0 auto;
+}
+
+.add-block {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.message-block {
+  width: 100%;
+  height: 25%;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px 10px 0px 10px;
+  margin: 0 auto;
+}
+
+.game-board {
+  margin: auto;
+  max-width: 500px;
+  width: 90%;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 3fr;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.game-board.hard {
+  max-width: 650px;
+  height: 630px;
+}
+
+.game-board.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.counter {
+  text-align: center;
+  padding: 20px;
+  font-size: 25px;
+}
+
+.top-line,
+.left-line {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.top-line.dark,
+.left-line.dark {
+  background-color: rgba(188, 116, 169, 0.5);
+}
+
+.field {
+  display: grid;
+}
+
+.field.easy {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.field.medium {
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.field.hard {
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+}
+
+.cell {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 40px;
+  padding: 5px 0 0 0;
+}
+
+.cell.dark {
+  border-color: rgb(188, 116, 169);
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
+}
+
+.field.easy .cell {
+  padding-top: 15px;
+}
+
+.field.medium .cell {
+  font-size: 25px;
+}
+
+.field.hard .cell {
+  font-size: 15px;
+}
+
+.top-line {
+  display: grid;
+}
+
+.top-line.easy {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.top-line.medium {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.top-line.hard {
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.top-line .cell {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  border-bottom: none;
+  border-top: none;
+}
+
+.top-line.medium .cell {
+  font-size: 20px;
+}
+
+.top-line.hard .cell {
+  font-size: 20px;
+  padding: 0 0 5px 0;
+}
+
+.left-line {
+  display: grid;
+}
+
+.left-line.easy {
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.left-line.medium {
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.left-line.hard {
+  grid-template-rows: repeat(15, 1fr);
+}
+
+.left-line .cell {
+  border-right: none;
+  border-left: none;
+  text-align: right;
+  padding: 15px 5px 0 0;
+}
+
+.left-line.medium .cell {
+  font-size: 20px;
+  padding: 10px 10px 0 0;
+}
+
+.left-line.hard .cell {
+  font-size: 20px;
+  padding: 5px 10px 0 0;
+}
+
+.button {
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgb(103, 178, 190);
+  transition: 0.8s;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+}
+
+.button.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgb(188, 116, 169);
+}
+
+.button.dark:hover {
+  cursor: pointer;
+  background-color: rgb(188, 116, 169);
+}
+
+.active {
+  background-color: rgb(255, 255, 255);
+  pointer-events: none;
+}
+
+.active.dark {
+  background-color: rgb(188, 116, 169);
+}
+
+.level-puzzles-block .button.medium {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: gray;
+  pointer-events: none;
+}
+
+.sound-button {
+  padding: 8px 10px 5px;
+  transition: 1s;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  transition: 1s;
+}
+
+@media (max-width: 1000px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .menu-block {
+    width: 100%;
+    height: 45%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .buttons-block {
+    height: 20%;
+    margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .level-puzzles-block {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 20%;
+  }
+
+  .add-block {
+    height: 15%;
+  }
+
+  .message-block {
+    width: 95%;
+    height: 25%;
+    padding-top: 10px;
+    font-size: 15px;
+  }
+
+  .game-board {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .game-board.hard {
+    max-width: 500px;
+    height: 600px;
+    font-size: 15px;
+  }
+
+  .counter {
+    font-size: 15px;
+    padding: 30px 10px 10px;
+  }
+
+  .top-line .cell {
+    padding: 0;
+    margin: 0;
+  }
+
+  .top-line.hard .cell {
+    font-size: 15px;
+  }
+
+  .left-line.hard .cell {
+    font-size: 15px;
+  }
+
+  .button {
+    margin: 0 5px;
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  .level-puzzles-block .button {
+    margin: 0 auto;
+  }
+}
