@@ -20,18 +20,15 @@ export const messageBlock = createElementInHTML(
 const buttonsBlock = createElementInHTML("div", "", "buttons-block");
 buttonsBlock.append(
   resetGameButton,
+  randomGameButton,
   saveGameButton,
   continueLastGameButton,
+  switchThemeButton,
   soundButton,
 );
 
 const additionalButtonsBlock = createElementInHTML("div", "", "add-block");
-additionalButtonsBlock.append(
-  switchThemeButton,
-  solutionButton,
-  randomGameButton,
-  topButton,
-);
+additionalButtonsBlock.append(solutionButton, topButton);
 
 const menuBlock = createElementInHTML("div", "", "menu-block");
 menuBlock.append(
